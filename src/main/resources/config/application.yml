@@ -1,0 +1,52 @@
+#common Config
+
+# 访问路径、端口tomcat
+server:
+  servlet:
+    context-path: /chatgpt-juejin
+
+# spring config start
+spring:
+  application:
+    name: chatgpt-juejin
+  http:
+    encoding:
+    charset: UTF-8
+    enabled: true
+    force: true
+  jackson:
+    date-format: yyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  banner:
+    charset: UTF-8
+    location: classpath:config/banner.txt
+
+# 当前项目maven激活环境，例如：local/dev/prod，对应pom.xml中profile设置值
+---
+spring:
+  profiles:
+    active: '@profileActive@'
+################################ spring config end ################################
+
+
+# springdoc-openapi项目配置
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.aijuejin.webchat.controller
+# knife4j的增强配置，不需要增强可以不配
+knife4j:
+  # 开启增强配置
+  enable: true
+  setting:
+    language: zh_cn
+    # 开启Swagger的Basic认证功能,默认是false
+    basic:
+      enable: true

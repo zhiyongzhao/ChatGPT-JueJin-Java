@@ -1,0 +1,45 @@
+chatgpt-juejin:
+  # 是否启用ansi控制台输出有颜色的字体，local环境建议开启，服务器环境设置为false
+  enable-ansi: true
+  # 请求日志在控制台是否格式化输出，local环境建议开启，服务器环境设置为false
+  request-log-format: true
+  # 响应日志在控制台是否格式化输出，local环境建议开启，服务器环境设置为false
+  response-log-format: true
+
+server:
+  port: 8082
+
+# logback.xml中有详细的日志配置
+logging:
+  file:
+    name: logs/chatgpt-juejin.log
+
+# openai配置
+web-chat:
+  auth-secret-key: 111
+  openai:
+    # 官方api-url
+    api-url: https://api.openai.com
+    # api-model: gpt-4, gpt-4-0314, gpt-4-32k, gpt-4-32k-0314, gpt-3.5-turbo, gpt-3.5-turbo-0301, text-davinci-003, text-davinci-002, code-davinci-002
+    api-model: gpt-3.5-turbo
+    # api-key
+    api-key:
+    # openai代理url
+    api-proxy-url: https://ai.fakeopen.com/api/conversation
+    # 登录 https://chat.openai.com/ 后打开 https://chat.openai.com/api/auth/session 获取token
+    access-token : eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1UaEVOVUpHTkVNMVFURTRNMEZCTWpkQ05UZzVNRFUxUlRVd1FVSkRNRU13UmtGRVFrRXpSZyJ9.eyJodHRwczovL2FwaS5vcGVuYWkuY29tL3Byb2ZpbGUiOnsiZW1haWwiOiJpbGNoZXZucW9ieXNAb3V0bG9vay5jb20uYXUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZX0sImh0dHBzOi8vYXBpLm9wZW5haS5jb20vYXV0aCI6eyJ1c2VyX2lkIjoidXNlci1rZ3FzbjdJZXlhTGRMY0xrMFZjQjFkRXIifSwiaXNzIjoiaHR0cHM6Ly9hdXRoMC5vcGVuYWkuY29tLyIsInN1YiI6ImF1dGgwfDY0MWQ5MWZhMmZmNTMzYzYzYWFkOGNhNSIsImF1ZCI6WyJodHRwczovL2FwaS5vcGVuYWkuY29tL3YxIiwiaHR0cHM6Ly9vcGVuYWkub3BlbmFpLmF1dGgwYXBwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2ODU4NzUxMzUsImV4cCI6MTY4NzA4NDczNSwiYXpwIjoiVGRKSWNiZTE2V29USHROOTVueXl3aDVFNHlPbzZJdEciLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIG1vZGVsLnJlYWQgbW9kZWwucmVxdWVzdCBvcmdhbml6YXRpb24ucmVhZCBvcmdhbml6YXRpb24ud3JpdGUifQ.FaGeD5HMe9KpaS1UeeOo-2VY5zxblbwWuNM7vqoBs4i3rPyG_K9cdRTGs0Rvd7ruNFTrDHi9BFP2HLWYL4EI0Vh3X-NCiN_Xhs4XEpRurdYbP2OYfyaWjQ2bN5WHmAstOO_se4bTo44KitXCFR3eO7hDphu9MVpC_6P08RFlxusuCpbExPWsVaL_nuupdXRQ66KhxG98HFeHs_88N_-XpRukqj1Nc3DVLdVAbAZ-YOqnlb6rG-y4kJflcauPF3g4qtWYGAeMl77gpgzGadhpynMGMI-ztGtWwLUi_Cz_nkxTd0gf_JXm5GQDvjSgDV2zVcc5JdWbSuGWdcAoBSxXYg
+    # 账户余额查询，来自https://platform.openai.com/登录接口中的sensitive-id参数
+    sensitive-id: 1234
+  api:
+    timeout: 120000
+    max-request-per-hour: 5
+  # socks 代理
+  socks-proxy:
+    host:
+    port:
+    username:
+    password:
+  # http代理
+  http-proxy:
+    host:
+    port:
